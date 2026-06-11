@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Card UI</title>
+  <style>
+    /* Tag selectors: reset base page, image, and button styles */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #ffffff;
+      background: #f4f7fb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* ID selector: main wrapper for all cards */
+    #card-section {
+      width: min(100%, 1180px);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .course-card {
+      position: relative;
+      min-height: 330px;
+      aspect-ratio: 1.58 / 1;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #3b82f6;
+      box-shadow: 0 22px 50px rgba(37, 99, 235, 0.22);
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 70px rgba(37, 99, 235, 0.3);
+    }
+
+    .course-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.4s ease;
+    }
+
+    .course-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .course-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(91, 121, 238, 0.9) 0%,
+        rgba(112, 105, 224, 0.78) 46%,
+        rgba(94, 210, 194, 0.78) 100%
+      );
+    }
+
+    .course-card.is-purple::after {
+      background: linear-gradient(
+        135deg,
+        rgba(99, 116, 238, 0.9) 0%,
+        rgba(138, 111, 219, 0.8) 100%
+      );
+    }
+
+    .course-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 520px;
+      padding: 48px;
+    }
+
+    .course-title {
+      margin: 0 0 20px;
+      font-size: 40px;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .course-description {
+      margin: 0 0 34px;
+      max-width: 500px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 18px;
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .learn-btn {
+      min-width: 190px;
+      padding: 18px 28px;
+      border: 2px solid rgba(255, 255, 255, 0.72);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: background-color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .learn-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive layout: keep cards readable instead of squeezing content */
+    @media (max-width: 900px) {
+      body {
+        padding: 28px 18px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .course-card {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .course-card {
+        min-height: 340px;
+        aspect-ratio: auto;
+      }
+
+      .course-content {
+        padding: 32px 26px;
+      }
+
+      .course-title {
+        font-size: 32px;
+      }
+
+      .course-description {
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .learn-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="card-section">
+    <section class="card-grid" aria-label="Course cards">
+      <article class="course-card is-purple">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Workspace with laptop and notes">
+        <div class="course-content">
+          <h2 class="course-title">UX Research</h2>
+          <p class="course-description">
+            Learn how to understand users, discover real problems, and turn research findings into better product decisions.
+          </p>
+          <button class="learn-btn">Learn More</button>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Laptop and notebook on a desk">
+        <div class="course-content">
+          <h2 class="course-title">Bootcamp</h2>
+          <p class="course-description">
+            Build practical web projects step by step while learning HTML, CSS, responsive layout, and clean UI patterns.
+          </p>
+          <button class="learn-btn">Learn More</button>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
