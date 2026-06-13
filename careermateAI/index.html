@@ -7,7 +7,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer></script>
     <title>CareerMate AI</title>
@@ -16,19 +17,19 @@
 
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-container">
+    <nav class="navbar" aria-label="Primary navigation">
+        <div class="navbar-container container">
             <div class="logo">
                 <img class="logo-icon" src="assets/logo-icon.svg" alt="CareerMate AI Logo">
                 <img class="logo-text" src="assets/logo-text.png" alt="CareerMate AI Logo">
             </div>
             <div class="nav-links">
                 <a class="nav-link" href="#home">Features</a>
-                <a class="nav-link" href="#contact">Demo</a>
+                <a class="nav-link" href="#demo">Demo</a>
             </div>
             <div class="nav-buttons">
-                <a href="#signin" class="btn-signin">Sign In</a>
-                <a href="#start" class="btn-start">Start for Free</a>
+                <a href="#signin" class="btn btn-ghost">Sign In</a>
+                <a href="#start" class="btn btn-dark">Start for Free</a>
             </div>
         </div>
     </nav>
@@ -36,14 +37,14 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="hero-container">
+        <section class="hero section section-hero" id="home">
+            <div class="hero-container container">
                 <div class="hero-content">
                     <h1 class="hero-title">Your AI Career Practice Partner</h1>
                     <p class="hero-description">Get job-ready with AI — from resumes to interviews, CareerMate AI
                         coaches you step by step.</p>
                     <div class="hero-buttons">
-                        <a href="#start" class="btn-hero-primary">Start for Free
+                        <a href="#start" class="btn btn-primary">Start for Free
                             <svg width="20" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -51,97 +52,219 @@
                                 <polyline points="12 5 19 12 12 19"></polyline>
                             </svg>
                         </a>
-                        <a href="#demo" class="btn-hero-secondary">Watch Demo
+                        <a href="#demo" class="btn btn-secondary">Watch Demo
                             <svg width="20" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
                             </svg>
+
                         </a>
                     </div>
                 </div>
-                <img class="hero-decoration" src="assets/arrow-cursor.webp" alt="CareerMate AI Hero Image">
+                <img class="hero-decoration" src="assets/arrow-cursor.webp" alt="" aria-hidden="true">
             </div>
         </section>
 
-        <!-- Pain Point Section -->
-        <section class="pain-point" id="pain-point">
-            <div class="pain-point-container">
-                <h2 class="section-title">Still Struggling with Job Applications?</h2>
+
+        <!-- Features Section -->
+        <section class="features section section-muted" id="features" aria-labelledby="features-title">
+            <div class="features-container container">
+                <header class="section-header">
+                    <h2 class="section-title" id="features-title">A Complete AI Career Practice Workspace</h2>
+                    <p class="section-subtitle">Move from preparation to confident action with guided tools in one
+                        focused experience.</p>
+                </header>
+                <img src="assets/features-showcase.png" alt="CareerMate AI feature dashboard preview"
+                    class="features-img" loading="lazy" decoding="async">
             </div>
         </section>
 
-        <!-- Solution / CTA Banner -->
-        <section class="solution-banner" id="solution">
-            <div class="solution-container">
-                <div class="solution-text">
-                    <p class="solution-label">CareerMate AI</p>
-                    <h2 class="solution-title">helps you fix all of that — smartly.</h2>
+        <!-- Problem solution -->
+        <section class="problem-solution section section-divider" aria-labelledby="problems-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="problems-title section-title" id="problems-title">Still Struggling with Job Applications?
+                    </h2>
+                    <p class="section-subtitle">Turn common application roadblocks into clear, practical next steps.</p>
+                </header>
+                <div class="problem-solution-container">
+
+                    <div class="problems-side">
+
+                        <div class="problems-list">
+                            <div class="problem-item card card-compact">
+                                <p class="problem-text">
+                                    Your resume keeps getting ignored.
+                                </p>
+                                <div class="problem-icon">
+                                    <svg width="20" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+
+                                </div>
+                            </div>
+                            <div class="problem-item card card-compact">
+                                <p class="problem-text">
+                                    You don't know what interviewers expect.
+                                </p>
+                                <div class="problem-icon">
+                                    <svg width="20" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+
+                                </div>
+                            </div>
+                            <div class="problem-item card card-compact">
+                                <p class="problem-text">
+                                    You're unsure how to plan your career.
+                                </p>
+                                <div class="problem-icon">
+                                    <svg width="20" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="solution-side">
+                        <div class="solution-card card card-brand">
+                            <div class="solution-card-content">
+                                <h3 class="solution-text">CareerMate AI helps you fix all of that — smartly.</h3>
+                            </div>
+                            <img src="assets/rocket-icon.png" alt="" aria-hidden="true" class="rocket-icon"
+                                loading="lazy" decoding="async">
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section class="features" id="features">
-            <div class="features-container">
-                <h2 class="section-title">Everything You Need to Grow Your Career</h2>
+        <section class="features-showcase section section-muted" aria-labelledby="features-showcase-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="features-showcase-title section-title" id="features-showcase-title">
+                        Everything You Need to Grow Your Career
+                    </h2>
+                    <p class="section-subtitle">Focused AI tools for every important stage of your career journey.</p>
+                </header>
+                <div class="features-showcase-container">
+                    <article class="feature-card card card-muted">
+                        <img src="assets/feature-mock-interview.png" alt="AI mock interview interface"
+                            class="feature-mock-interview" loading="lazy" decoding="async">
+                        <h3 class="feature-card-title">AI Mock Interview</h3>
+                        <p class="feature-card-description">Practice real interview questions and get instant feedback.
+                        </p>
+                    </article>
+                    <article class="feature-card card card-muted">
+                        <img src="assets/feature-resume-analyzer.png" alt="Resume analysis interface"
+                            class="feature-resume-analyzer" loading="lazy" decoding="async">
+                        <h3 class="feature-card-title">Resume Analyzer</h3>
+                        <p class="feature-card-description">Upload your resume, and get improvement tips instantly.</p>
+                    </article>
+                    <article class="feature-card card card-muted">
+                        <img src="assets/feature-career-coach.png" alt="AI career coach interface"
+                            class="feature-career-coach" loading="lazy" decoding="async">
+                        <h3 class="feature-card-title">Career Coach Mode</h3>
+                        <p class="feature-card-description">Discover your ideal job path and skill roadmap.</p>
+                    </article>
+                    <article class="feature-card card card-muted">
+                        <img src="assets/feature-project-reviewer.png" alt="AI project review interface"
+                            class="feature-project-reviewer" loading="lazy" decoding="async">
+                        <h3 class="feature-card-title">Project Reviewer</h3>
+                        <p class="feature-card-description">Let AI turn your past projects into strong interview
+                            stories.</p>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <!-- Demo Section -->
-        <section class="demo" id="demo">
-            <div class="demo-container">
-                <h2 class="section-title">See CareerMate AI in Action</h2>
+        <!-- ai action -->
+        <section class="ai-action section section-divider" id="demo" aria-labelledby="ai-action-title">
+            <div class="ai-action-container container">
+
+                <div class="ai-action-left">
+                    <div class="section-header section-header-left">
+                        <h2 class="ai-action-title section-title" id="ai-action-title">See CareerMate AI in Action</h2>
+                        <p class="section-subtitle">Experience realistic practice and useful feedback in a simple,
+                            focused workflow.</p>
+                    </div>
+                    <div class="ai-action-bg">
+                        <img src="assets/ai-action-chat.png" alt="CareerMate AI coaching conversation"
+                            class="ai-action-bg-img" loading="lazy" decoding="async">
+                    </div>
+                </div>
+                <div class="ai-action-right">
+                    <img src="assets/ai-action-right-chat.png" alt="CareerMate AI feedback interface"
+                        class="chat-interface-img" loading="lazy" decoding="async">
+                </div>
+
             </div>
+
         </section>
-        <!-- Tech Section -->
-        <section class="tech" id="tech">
-            <div class="tech-container">
-                <h2 class="section-title">Built with the Power of AI Engineering</h2>
+
+        <!-- CTA Banner -->
+        <section class="cta-section section" id="start" aria-labelledby="cta-title">
+            <div class="cta-banner container">
+                <div class="cta-content">
+                    <h2 class="cta-title" id="cta-title">Ready to Practice Your Next Career Move?</h2>
+                    <p class="cta-description">Build confidence with guided AI practice for resumes, interviews, and
+                        career planning.</p>
+                    <a href="#home" class="btn btn-light">Start for Free
+                        <svg width="20" height="20" aria-hidden="true" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section class="testimonials" id="testimonials">
-            <div class="testimonials-container">
-                <h2 class="section-title">Trusted by Students Worldwide</h2>
-            </div>
-        </section>
-        <!-- Contact Section -->
-        <section class="contact" id="contact">
-            <div class="contact-container">
-                <h2 class="section-title">Get in touch with us</h2>
-                <div class="pain-cards">
-            <div class="pain-card">
-                <span class="pain-icon">&blacklozenge;</span>
-                <p>Don't know how to tailor your resume for each role</p>
-            </div>
-            <div class="pain-card">
-                <span class="pain-icon">&acute;</span>
-                <p>Freeze up when answering behavioural interview questions</p>
-            </div>
-            <div class="pain-card">
-                <span class="pain-icon">&cap;</span>
-                <p>Spend hours writing cover letters with no results</p>
-            </div>
-        </div>
+        <!-- AI Engineer Section -->
+        <section class="ai-engineer section section-muted section-divider" aria-labelledby="ai-engineer-title">
+            <div class="ai-engineer-container container">
+                <div class="ai-engineer-bg">
+                    <img src="assets/ai-engineer-bg.png" alt="AI engineering technology illustration"
+                        class="ai-engineer-bg-img" loading="lazy" decoding="async">
+                </div>
+                <div class="ai-engineer-content">
+                    <h2 class="ai-engineer-title section-title" id="ai-engineer-title">Built with the Power of AI
+                        Engineering</h2>
+                    <p class="ai-engineer-subtitle">Powered by OpenAI GPT models, LangChain, and AWS Cloud.
+                    </p>
+                    <p class="ai-engineer-description">Developed by JR Academy’s AI Engineering program — where learning
+                        meets innovation.</p>
+                </div>
             </div>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-
-            <div class="footer-logo">
-                <img class="logo-icon" src="assets/logo-icon.svg" alt="CareerMate AI Logo">
-                <img class="logo-text" src="assets/logo-text.png" alt="CareerMate AI Logo">
-            </div>
-
-            <div class="footer-description">
-
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img class="logo-icon" src="assets/logo-icon.svg" alt="CareerMate AI Logo">
+                    <img class="logo-text" src="assets/logo-text.png" alt="CareerMate AI Logo">
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy;2025 CareerMate AI by JR Academy</p>
+                </div>
             </div>
             <div class="footer-links">
                 <a class="footer-link" href="#privacy">Terms</a>
@@ -149,11 +272,6 @@
                 <a class="footer-link" href="#terms">Contact</a>
                 <a class="footer-link" href="#terms">JR Academy</a>
             </div>
-
-
-        </div>
-        <div class="footer-copyright">
-            <p>&copy;2025 CareerMate AI by JR Academy</p>
         </div>
     </footer>
 </body>
