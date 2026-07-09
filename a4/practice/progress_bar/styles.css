@@ -1,0 +1,119 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f6fb;
+  font-family: "Muli", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+/* Progress Bar 
+display: flex 讓 4 個圓圈排成一列。
+justify-content: space-between 讓圓圈平均分布。
+position: relative 是為了讓裡面的線可以用 position: absolute 定位。
+width: 350px 控制整條進度條寬度。
+*/
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+.progress-container::before {
+  /*
+  ::before 是 pseudo-element，不需要額外 HTML。
+    content: "" 必須寫，否則 ::before 不會出現。
+    top: 50% 加 translateY(-50%) 讓線垂直置中。
+    width: 100% 表示灰線永遠完整顯示。
+    z-index: -1 讓線在圓圈後面。
+  */
+  content: "";
+  position: absolute;
+  background-color: #e0e0e0;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+.progress-container .progress {
+  /*
+  progress 是藍色進度線。
+  初始 width: 0%，代表目前還在第 1 步。
+  JavaScript 會改 progress.style.width。
+  transition: 0.4s ease 讓線條變長時有動畫。
+  */
+  background-color: #3498db;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 4px;
+  width: 0%;
+  transition: 0.4s ease;
+  z-index: -1;
+}
+.progress-container .circle {
+  /*
+  width 和 height 都是 30px，先做出正方形。
+  border-radius: 50% 把正方形變成圓形。
+  display: flex 加上 align-items 和 justify-content 讓數字置中。
+  .circle.active 代表同一個元素同時有 circle 和 active。
+  */
+  background-color: #fff;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #e0e0e0;
+  transition: 0.4s ease;
+}
+.progress-container .circle.active {
+  border-color: #3498db;
+}
+
+.btn {
+  /*
+  cursor: pointer 表示按鈕可以點。
+  :active 是滑鼠按下時的狀態。
+  transform: scale(0.98) 讓按鈕有按下去的感覺。
+  :disabled 是不能點擊時的狀態。
+  disabled 按鈕會變灰，滑鼠變成 not-allowed。
+
+  */
+  background-color: #3498db;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}/*# sourceMappingURL=styles.css.map */
