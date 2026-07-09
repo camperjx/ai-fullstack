@@ -1,0 +1,66 @@
+(base) jingxian@JINGXIANs-MacBook-Pro practice % node callback-demo.js 
+Fetching data from https://api.example.com/user...
+Data received: { id: 1, name: 'John Doe' }
+(base) jingxian@JINGXIANs-MacBook-Pro 12 % cd practice 
+(base) jingxian@JINGXIANs-MacBook-Pro practice % node promise-demo.js 
+Fetching data from https://api.example.com/user...
+Data received: { id: 1, name: 'John Doe' }
+(base) jingxian@JINGXIANs-MacBook-Pro practice % node promise-demo.js 
+Fetching data from undefined...
+Error fetching data: Error: URL is required
+    at /Users/jingxian/Dropbox/JR/ai_fullstack/12/practice/promise-demo.js:4:20
+    at new Promise (<anonymous>)
+    at fetchData (/Users/jingxian/Dropbox/JR/ai_fullstack/12/practice/promise-demo.js:2:12)
+    at Object.<anonymous> (/Users/jingxian/Dropbox/JR/ai_fullstack/12/practice/promise-demo.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+    at node:internal/main/run_main_module:28:49
+(base) jingxian@JINGXIANs-MacBook-Pro practice % touch async-await-demo.js
+(base) jingxian@JINGXIANs-MacBook-Pro practice % node async-await-demo.js 
+Fetching data from https://api.example.com/users...
+Data received: { id: 1, name: 'John Doe' }
+(base) jingxian@JINGXIANs-MacBook-Pro practice % node async-await-demo.js 
+Fetching data from undefined...
+Error fetching data: Error: URL is required
+    at /Users/jingxian/Dropbox/JR/ai_fullstack/12/practice/async-await-demo.js:4:20
+    at new Promise (<anonymous>)
+    at fetchData (/Users/jingxian/Dropbox/JR/ai_fullstack/12/practice/async-await-demo.js:2:12)
+    at loadData (/Users/jingxian/Dropbox/JR/ai_fullstack/12/practice/async-await-demo.js:18:28)
+    at Object.<anonymous> (/Users/jingxian/Dropbox/JR/ai_fullstack/12/practice/async-await-demo.js:26:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+(base) jingxian@JINGXIANs-MacBook-Pro practice % cd ts-practice 
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % tsc --init
+
+Created a new tsconfig.json                                                                                             
+                                                                                                                     TS 
+You can learn more at https://aka.ms/tsconfig
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % touch index.ts
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % tsc index.ts
+error TS5112: tsconfig.json is present but will not be loaded if files are specified on commandline. Use '--ignoreConfig' to skip this error.
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % tsc
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % node index.js
+The result of adding 5 and 10 is: 15
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % tsc index.ts
+error TS5112: tsconfig.json is present but will not be loaded if files are specified on commandline. Use '--ignoreConfig' to skip this error.
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % tsc
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % node index.js
+The result of adding 5 and 10 is: 15
+Hello, Felix! You are 18 years old.
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % tsc 
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % node index.js
+The result of adding 5 and 10 is: 15
+Hello, Felix! You are 18 years old.
+Hello, Felix! You are 18 years old.
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % tsc
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % node index.js
+The result of adding 5 and 10 is: 15
+Hello, Felix! You are 18 years old.
+Hello, Alice! You are 20 years old.
+(base) jingxian@JINGXIANs-MacBook-Pro ts-practice % 

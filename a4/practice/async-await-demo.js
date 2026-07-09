@@ -1,0 +1,26 @@
+const fetchData = (url) => {
+    return new Promise((resolve, reject) => {
+        if (!url) {
+            reject(new Error('URL is required'))
+        }
+
+        console.log(`Fetching data from ${url}...`)
+
+        setTimeout(() => {
+            const data = { id: 1, name: 'John Doe' }
+            resolve(data)
+        }, 2000)
+    })
+}   
+
+const loadData = async (url) => {
+    try {
+        const data = await fetchData(url)
+        console.log('Data received:', data)
+    } catch (error) {
+        console.error('Error fetching data:', error)
+    }
+}
+
+// loadData('https://api.example.com/users')
+loadData() // Uncomment this line to see the error handling in action
