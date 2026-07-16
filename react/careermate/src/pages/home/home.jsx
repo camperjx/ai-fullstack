@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './home.css';
-export default props => {
+
+const Home = () => {
     //   const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -32,3 +33,5 @@ export default props => {
       </main>
     );
 };
+
+export default Home;
