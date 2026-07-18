@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './Index.css';
 
 function mockLogin(email, password) {
@@ -20,6 +20,7 @@ const Login = () => {
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [error, setError] = useState("");
+    const emailInputRef = useRef(null);
 
     const [status, setStatus] = useState('idle'); // idle, loading, success, error  
 
@@ -120,6 +121,7 @@ const Login = () => {
 
     useEffect(() => {
         // Fetch user data or perform other side effects here
+        emailInputRef.current.focus(); // Focus on the email input field when the component mounts
     }, []);
 
     return (
@@ -128,7 +130,7 @@ const Login = () => {
                 <h2>CareerMate Login</h2>
                 <label htmlFor="email">Email: {emailError && <p className="error-message">{emailError}</p>}</label>
 
-                <input type="email" id="email" name="email" required value={email} onChange={emailChange} />
+                <input type="email" id="email" name="email" required value={email} onChange={emailChange} ref={emailInputRef} />
                 <label htmlFor="password">Password: {passwordError && <p className="error-message">{passwordError}</p>}</label>
                 <input type="password" id="password" name="password" required value={password} onChange={passwordChange} />
                 <p>Email: {email}</p>

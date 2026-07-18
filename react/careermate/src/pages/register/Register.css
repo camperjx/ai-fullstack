@@ -1,0 +1,51 @@
+.register-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f7fb;
+}
+
+.register-form {
+    width: min(420px, calc(100% - 32px));
+    padding: 28px;
+    background-color: #ffffff;
+    border: 1px solid #e1e5ea;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.register-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-preview {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px solid #e1e5ea;
+}
+
+.register-error {
+  margin: 0 0 12px;
+  color: #c62828;
+  font-size: 13px;
+}
+
+.register-success {
+  margin: 0 0 12px;
+  color: #15803d;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.register-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
