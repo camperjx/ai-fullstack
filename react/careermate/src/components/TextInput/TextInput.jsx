@@ -15,7 +15,7 @@ const TextInput = ({
 
     useEffect(() => {
         if (autoFocus && inputRef.current) {
-            inputRef.current.focus();
+            inputRef.current?.focus();
         }
     }, [autoFocus]);
 

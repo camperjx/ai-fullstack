@@ -1,5 +1,10 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Index.css';
+import { validateLogin } from '../../utils/validators';
+import useEmail from '../../hooks/useEmail';
+import TextInput from '../../components/TextInput/TextInput';
+
 
 function mockLogin(email, password) {
     return new Promise((resolve, reject) => {
@@ -15,35 +20,16 @@ function mockLogin(email, password) {
 
 const Login = () => {
     // Define state variables for email and password to make the input as controlled components
-    const [email, setEmail] = useState('');
+    const navigate = useNavigate();
+    const { email, setEmail, emailError, setEmailError, emailChange, resetEmail } = useEmail();
     const [password, setPassword] = useState('');
-    const [emailError, setEmailError] = useState("");
+    // const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [error, setError] = useState("");
     const emailInputRef = useRef(null);
 
     const [status, setStatus] = useState('idle'); // idle, loading, success, error  
 
-    function emailChange(e) {
-        const value = e.target.value;
-
-        setEmail(value);
-        setError("");
-        setStatus("idle");
-
-        if (!value.trim()) {
-            setEmailError("Email is required");
-        }
-        else if (!value.includes("@")) {
-            setEmailError("Invalid email format");
-        }
-        else if (value.length > 50) {
-            setEmailError("Email must be less than 50 characters");
-        }
-        else {
-            setEmailError("");
-        }
-    }
 
     function passwordChange(e) {
         const value = e.target.value;
@@ -66,79 +52,78 @@ const Login = () => {
         }
     }
 
-    const validate = () => {
-        let hasError = false;
 
-        if (!email.trim()) {
-            setEmailError("Email is required");
-            hasError = true;
-        }
-        else if (!email.includes("@")) {
-            setEmailError("Invalid email format");
-            hasError = true;
-        }
-        else if (email.length > 50) {
-            setEmailError("Email must be less than 50 characters");
-            hasError = true;
-        }
-
-        if (!password.trim()) {
-            setPasswordError("Password is required");
-            hasError = true;
-        }
-        else if (password.length < 6) {
-            setPasswordError("Password must be at least 6 characters");
-            hasError = true;
-        }
-        else if (password.length > 20) {
-            setPasswordError("Password must be less than 20 characters");
-            hasError = true;
-        }
-
-        return !hasError;
-    };
-
-    async function handleLogin() {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         setError("");
         setStatus("loading");
-        if (!validate()) {
-            setStatus('error');
-            console.log("Validation errors");
-            return; // Stop form submission if there are validation errors
+
+        const errMsg = validateLogin({ email, password });
+        if (errMsg.email || errMsg.password) {
+            setEmailError(errMsg.email || "");
+            setPasswordError(errMsg.password || "");
+            setStatus("error");
+            return;
         }
 
         try {
             await mockLogin(email, password);
-            console.log("Form submitted", { email, password });
-            setStatus('success');
-        }
-        catch (err) {
-            console.log("Incorrect email or password", err);
-            setStatus('error');
+            setStatus("success");
+            navigate('/home'); // Redirect to home page on successful login
+        } catch (err) {
             setError(err.message);
+            setStatus("error");
         }
-    }
+    };
 
-    useEffect(() => {
-        // Fetch user data or perform other side effects here
-        emailInputRef.current.focus(); // Focus on the email input field when the component mounts
-    }, []);
+    // useEffect(() => {
+    //     const login = async () => {
+    //         try {
+    //             await mockLogin(email, password);
+    //             setStatus("success");
+    //             navigate('/home'); // Redirect to home page on successful login
+    //         } catch (err) {
+    //             setError(err.message);
+    //             setStatus("error");
+    //         }
+    //     };
+    //     login();
+    // }, [email, password, navigate]);
 
     return (
         <div className="login-container">
-            <form className='form-container' noValidate onSubmit={(e) => e.preventDefault()} >
+            <form className='form-container' noValidate onSubmit={handleSubmit} >
                 <h2>CareerMate Login</h2>
-                <label htmlFor="email">Email: {emailError && <p className="error-message">{emailError}</p>}</label>
+            
+                <TextInput
+                    label="Email"
+                    name="email"
+                    type="email"
+                    value={email}
+                    onChange={emailChange}
+                    error={emailError}
+                    autoFocus
+                />
+                {error && <p className="error-message">{error}</p>}
 
-                <input type="email" id="email" name="email" required value={email} onChange={emailChange} ref={emailInputRef} />
-                <label htmlFor="password">Password: {passwordError && <p className="error-message">{passwordError}</p>}</label>
-                <input type="password" id="password" name="password" required value={password} onChange={passwordChange} />
-                <p>Email: {email}</p>
-                <p>Password: {password}</p>
-                
+                <TextInput
+                    type="password"
+                    label="Password"
+                    name="password"
+                    value={password}
+                    onChange={passwordChange}
+                    error={passwordError}
+                />
+                {error && <p className="error-message">{error}</p>}
+
+
                 {status === "error" && error && <p className="error-message">{error}</p>}
                 {status === "success" && <p className="success-message">Login Success</p>}
-                <button disabled={status === 'loading'} type="button" onClick={handleLogin}>{status === 'loading' ? 'Logging in...' : 'Login'}</button>
+                <button disabled={status === 'loading'} type="submit">{status === 'loading' ? 'Logging in...' : 'Login'}</button>
+                <p>Don't have an account?</p>
+                <NavLink to="/register" className="register-link">
+                    Register
+                </NavLink>
             </form>
         </div>
     );

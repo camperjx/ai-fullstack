@@ -77,3 +77,11 @@
   margin-bottom: 12px;
   display: inline;
 }
+
+.login-link {
+  display: block;
+  margin-top: 24px;
+  text-align: auto;
+  color: #1976d2;
+  text-decoration: none;
+}
